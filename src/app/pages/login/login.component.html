@@ -1,0 +1,46 @@
+<div class="header-card">
+    <app-header-banner></app-header-banner>
+</div>
+
+<div class="login-container">
+    <div [formGroup] = "loginForm" class="login-content">
+
+        <img src="../assets/images/CourseFlow_Logo_white.png" alt="CourseFlowLogo" class="logo">
+        <p class="title">Log In</p>
+        <p class="title-intro">Welcome back</p>
+        <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input formControlName="username" matInput type="text">
+
+            <mat-error *ngif="loginForm.controls['username'].hasError('required')">
+                Username is required
+            </mat-error>
+
+            <mat-error *ngif="loginForm.controls['username'].hasError('email')">
+                Inavlid Email
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+            <mat-icon (click)="hide = !hide" matSuffix>{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngif="loginForm.controls['password'].hasError('required')">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+
+        <p class="forgot-label"> <span [routerLink]="['/forgot-password']">Forgot Password?</span></p>
+
+        <p class="alternative">Don't have an Account? <span [routerLink]="['/register']">Sign up!</span></p>
+        <button  [disabled]="loginForm.invalid" (click)="loginWithEmailAndPassword()" class="btn btnFil">Login</button>
+        <div class="or-line-divider">
+            <p>Or</p>
+        </div>
+        <div (click)="logInWithGoogle()" class="google-card">
+            <app-google-login-card></app-google-login-card>
+        </div>
+
+    </div>
+</div>
