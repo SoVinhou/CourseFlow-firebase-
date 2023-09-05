@@ -8,4 +8,4 @@ This  application uses Firebase as a database to store user data. This applicati
 Technologies used:
 - Angular, Typescript
 
-IMPORTANT: Install the appropriate node modules to run application check package.json for all third parties modules to be installed.
+IMPORTANT: Set Up Angular Typescript, and install the appropriate node modules to run application check package.json for all third parties modules to be installed.
